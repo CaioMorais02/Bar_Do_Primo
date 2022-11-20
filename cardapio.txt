@@ -1,0 +1,22 @@
+==============================================================
+|Bem-vindo ao Bar do Primo!                                  |
+|Aqui, voce so sai quando nao tiver mais dinheiro para beber!|
+|Estas sao as nossas bebidas, sinta-se a vontade.            |
+==============================================================
+
+=======================================
+|Cerveja                 |Preco       |
+=======================================
+|1- Budweiser            |R$4,00      |
+|2- Amstel Lager Pilsen  |R$9,00      |
+|3- Stela                |R$10,00     |
+|4- Corona               |R$11,00     |
+|5- Heineken             |R$15,00     |
+|6- Pergola              |R$16,00     |
+|7- Erdinger             |R$23,00     |
+|8- Gin Tanquere         |R$78,00     |
+|9- Vodka Absolute       |R$89,00     |
+|10- Red Label           |R$99,00     |
+|11- Jack Daniels        |R$130,00    |
+|12- Royal Salute        |R$1289,00   |
+=======================================
