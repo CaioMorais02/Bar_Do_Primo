@@ -10,7 +10,7 @@
 	tamArq: .space 1024 
 	
 .text
-	la $a0, initUser   #recebe a string da memória
+	la $a0, initUser   #recebe a string da memÃ³ria
 	
 	#print da string
 	li $v0, 4
@@ -23,7 +23,7 @@
 	#passar o dinheiro do $v0 para $t0
 	move $t0, $v0
 	
-	#se não tiver dinheiro suficiente para uma bebida, não entrará no bar
+	#se nÃ£o tiver dinheiro suficiente para uma bebida, nÃ£o entrarÃ¡ no bar
 	blt $t0, 4, pobre
 	
 		while:
@@ -35,14 +35,14 @@
     				syscall
     				move $s0, $v0        	# salva o descritor do arquivo
 	
-				#lê o arquivo
+				#lÃª o arquivo
 				li $v0, 14		# syscall de leitura
 				move $a0, $s0		# descritor do arquivo
 				la $a1, tamArq 	# buffer que segura o arquivo inteiro
 				la $a2, 1024		# tamanho do buffer
 				syscall
 	
-				# print do conteúdo do arquivo
+				# print do conteÃºdo do arquivo
 				li $v0, 4
 				la $a0, tamArq
 				syscall
@@ -65,62 +65,119 @@
     				
     				la $a0, opcUser   #recebe a string sobre qual bebida o usuario vai escolher
     				
-    				#print da string
+    			#print da string
 				li $v0, 4
 				syscall
 				
-				#recebe o número da bebida em que o usuário vai escolher
+				#recebe o nÃºmero da bebida em que o usuÃ¡rio vai escolher
 				li $v0, 5
 				syscall
 				
-				#preço da bebida fica salvo em $t1
+				#preÃ§o da bebida fica salvo em $t1
 				move $t1, $v0
 				
 				if:
-					#se nao for erdinger, passa para a próxima
+					#se nao for Budweiser, passa para a prÃ³xima
 					bne $t1, 1, elseIf1
-						blt $t0, 23, else
-						sub $t2, $t0, 23
-						move $t0, $t2
-						j while
-				
-				elseIf1:
-					#se não for heineken, passa para a próxima
-					bne $t1, 2, elseIf2
-						blt $t0, 15, else
-						sub $t2, $t0, 15
-						move $t0, $t2
-						j while
-					
-				elseIf2:
-					#se não for vodka absolute, passa para a próxima
-					bne $t1, 3, elseIf3
-						blt $t0, 88, else
-						sub $t2, $t0, 88
-						move $t0, $t2
-						j while
-					
-				elseIf3:
-					#se não for budweiser, passa para a próxima
-					bne $t1, 4, elseIf4
 						blt $t0, 4, else
 						sub $t2, $t0, 4
 						move $t0, $t2
 						j while
-					
-				elseIf4:
-					#se não for amstel, volta para o while
-					bne $t1, 5, else
+				
+				elseIf1:
+					#se nÃ£o for Amstel Lager Pilsen, passa para a prÃ³xima
+					bne $t1, 2, elseIf2
 						blt $t0, 9, else
 						sub $t2, $t0, 9
 						move $t0, $t2
 						j while
 					
+				elseIf2:
+					#se nÃ£o for Stela, passa para a prÃ³xima
+					bne $t1, 3, elseIf3
+						blt $t0, 10, else
+						sub $t2, $t0, 10
+						move $t0, $t2
+						j while
+					
+				elseIf3:
+					#se nÃ£o for Corona, passa para a prÃ³xima
+					bne $t1, 4, elseIf4
+						blt $t0, 11, else
+						sub $t2, $t0, 11
+						move $t0, $t2
+						j while
+					
+				elseIf4:
+					#se nï¿½o for Heineken, volta para o while
+					bne $t1, 5, elseIf5
+						blt $t0, 15, else
+						sub $t2, $t0, 15
+						move $t0, $t2
+						j while
+
+				elseIf5:
+					#se nï¿½o for Pergola, volta para o while
+					bne $t1, 6, elseIf6
+						blt $t0, 16, else
+						sub $t2, $t0, 16
+						move $t0, $t2
+						j while
+
+				elseIf6:
+					#se nï¿½o for Erdinger, volta para o while
+					bne $t1, 7, elseIf7
+						blt $t0, 23, else
+						sub $t2, $t0, 23
+						move $t0, $t2
+						j while
+				
+				elseIf7:
+					#se nï¿½o for Gin Tanquere, volta para o while
+					bne $t1, 8, elseIf8
+						blt $t0, 78, else
+						sub $t2, $t0, 78
+						move $t0, $t2
+						j while
+
+				elseIf8:
+					#se nï¿½o for Vodka Absolute, volta para o while
+					bne $t1, 9, elseIf9
+						blt $t0, 89, else
+						sub $t2, $t0, 89
+						move $t0, $t2
+						j while
+
+				elseIf9:
+					#se nÃ£o for Red Label, volta para o while
+					bne $t1, 10, elseIf10
+						blt $t0, 99, else
+						sub $t2, $t0, 99
+						move $t0, $t2
+						j while
+					
+				elseIf10:
+					#se nÃ£o for Jack Daniels, volta para o while
+					bne $t1, 11, elseIf11
+						blt $t0, 130, else
+						sub $t2, $t0, 130
+						move $t0, $t2
+						j while
+
+				elseIf11:
+					#se nÃ£o for Royal Salute, volta para o while
+					bne $t1, 12, else
+						blt $t0, 1289, else
+						sub $t2, $t0, 1289
+						move $t0, $t2
+						j while
+
+				
 				else:
 					j while
 			
 			fim:
-				la $a0, fimUser   #recebe a string da memória para anunciar o fim
+				la $a0, fimUser   #recebe a string da memÃ³ria para anunciar o fim
 	
 				#print da string
 				li $v0, 4
